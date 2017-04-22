@@ -3,7 +3,6 @@
 
 **Tables(Schema):**
 primary keys are underlined. With each column, Datatype, not null, isUnique, and meaning.
-@github/support What do you think about these updates
 user(uid, uname, email, hometown, password)
 Column
 Datatype
@@ -328,29 +327,40 @@ rate:
 pledge:
 contains:
 
-queries and the result on sample data:
+## queries and the result on sample data:
 1. create a record for a new user account.
-insert into User value ('004', 'Jesse', 'cjesse@nyu.edu','Huanggang', '09876544331');
- 
+```sql
+insert into User value ('010', 'Iris', 'Iris@nyu.edu',null, 'iris010');
+```
+
 2. List all projects contains keyword “jazz” currently looking for funds with descending order.
+```sql
 select pid, pname
 from Project
 where pname like '%jazz%' and iscomplete=false
+or pid in (select pid
+	     from tagitem natural join tag natural join project
+	     where content='jazz'
+           )
 order by startdate desc;
+```
  
 3. List all users who have given money to jazz projects in the past with sorted total amount.
+```sql
 select uid, uname, sum(amount)
-from crowdfunding1.User natural join Charge natural join Project
-where pid in (select pid
-   	        from Itemtag natural join Tag
-   	        where title='jazz')
-or pid in (select pid
-   	 	from Project
-            where category='jazz')
+from crowdfunding1.User natural join Pledge natural join Project
+where pid in (select pid 
+	        	from tagitem natural join Tag
+	         	where content='jazz')
+or pid in (select pid 
+	     from Project
+            where category ='jazz')
 group by uid
 order by sum(amount) desc;
+```
  
 4. List users completed at least 3 projects that all received over 4 starts average.
+```sql
 select uname
 from Post natural join crowdfunding1.User
 where pid not in (select pid
@@ -359,24 +369,30 @@ where pid not in (select pid
                   having avg(T1.level) < 4)
 group by uname
 having count(pid) > 2;
- 
+```
+
 5. List comments by users followed by “BobInBrooklyn”.
+```
 select content
 from Comment
 where uid in (select followee
    	        from Follow
                where follower='BobInBrooklyn');
+```
  
  
 6. Insert a new project.
+```sql
 INSERT INTO Project
 (`pid`, `pname`, `description`, `category`, `tag`, `startdate`, `enddate`, `deadline`, `minfund`, `maxfund`, `issuccess`, `iscomplete`, `updatetime`)
 VALUES ('0004', 'painting club', 'it is a painting club', 'painting', 'painting, club', '2017-04-18 12:00:00', '2017-05-30 12:00:00', '2017-05-16 12:00:00', '300', '700', '0', '0', '2017-04-18 18:09:00');
- 
+ ```
  
 7. Insert a pledge.
+```SQL
 insert into Pledge
-values ('004', '0001', 50, NOW(), '112');
+values ('004', '010', 50, NOW(), '73694649-ICBC',null,'0');
+```
  
  
 8. Write trigger
