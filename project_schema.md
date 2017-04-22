@@ -416,3 +416,8 @@ public static void test(){
  System.out.println("this is a test!");
  }
  '''
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
