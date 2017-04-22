@@ -393,9 +393,9 @@ for each row
 delimiter ;
 '''
 
-'''ruby
+'''SQL
+
 delimiter $$
- 
 create event timecheck
 on schedule every 1 day starts '2017-04-21 00:00:00'
 do begin
@@ -410,3 +410,9 @@ delimiter ;
 
 procedures:
 
+
+'''java
+public static void test(){
+ System.out.println("this is a test!");
+ }
+ '''
