@@ -1,5 +1,5 @@
 ## This is a quite specific design for the database 
-Author: @Cjesse  @leofanta
+*Author: Jesse Zhao & Jen Liu*
 
 **Tables(Schema):**
 primary keys are underlined. With each column, Datatype, not null, isUnique, and meaning.
@@ -380,6 +380,7 @@ values ('004', '0001', 50, NOW(), '112');
  
  
 8. Write trigger
+'''
 delimiter $$
 create trigger fullyfund before update on Project
 for each row
@@ -390,7 +391,8 @@ for each row
           	end if ;
    	end$$
 delimiter ;
- 
+'''
+'''
 delimiter $$
  
 create event timecheck
@@ -401,6 +403,7 @@ do begin
    where iscomplete=0 and endtime=now();
    end $$
 delimiter ;
+'''
 
 
 
