@@ -393,7 +393,7 @@ for each row
 delimiter ;
 '''
 
-'''sql
+'''ruby
 delimiter $$
  
 create event timecheck
