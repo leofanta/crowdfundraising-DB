@@ -1,23 +1,7 @@
 \documentclass[10pt, a4paper]{article}
 \usepackage[document]{ragged2e}
 \usepackage{amsmath,amssymb}
-\usepackage[toc,page]{appendix}
-\usepackage{fancybox}
-\usepackage{appendix}
-\DeclareMathOperator{\E}{\mathbb{E}}
-\usepackage[margin=1.0in]{geometry}
-\usepackage{tikz}
-\usetikzlibrary{decorations.pathmorphing,calc,shapes,arrows,snakes,shapes.geometric,patterns,matrix,positioning,arrows.meta}
 
-
-\begin{document}
-\title{Database Schema}
-\author{Jesse Zhao & Jen Liu}
-\date{}
-\maketitle
-
-\justifying
-\subsection*{E-R Diagram:}
 
 
 Tables(Schema):
@@ -425,4 +409,3 @@ delimiter ;
 
 procedures:
 
-\end{document}
