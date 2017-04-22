@@ -380,7 +380,7 @@ values ('004', '0001', 50, NOW(), '112');
  
  
 8. Write trigger
-'''sql
+```sql
 delimiter $$
 create trigger fullyfund before update on Project
 for each row
@@ -391,9 +391,9 @@ for each row
           	end if ;
    	end$$
 delimiter ;
-'''
+```
 
-'''SQL
+```SQL
 
 delimiter $$
 create event timecheck
@@ -404,20 +404,16 @@ do begin
    where iscomplete=0 and endtime=now();
    end $$
 delimiter ;
-'''
+```
 
 
 
 procedures:
 
 
-'''java
+```java
 public static void test(){
  System.out.println("this is a test!");
  }
- '''
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
+ ```
+
