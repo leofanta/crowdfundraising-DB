@@ -1,7 +1,6 @@
-It's very easy to make some words **bold** and other words *italic* with Markdown. You can even [link to Google!](http://google.com)
+## This is the quite specific design for the database 
 
-
-Tables(Schema):
+**Tables(Schema):**
 primary keys are underlined. With each column, Datatype, not null, isUnique, and meaning.
 
 user(uid, uname, email, hometown, password)
