@@ -1,4 +1,5 @@
-## This is the quite specific design for the database 
+## This is a quite specific design for the database 
+* Author: @Cjesse & @leofanta *
 
 **Tables(Schema):**
 primary keys are underlined. With each column, Datatype, not null, isUnique, and meaning.
