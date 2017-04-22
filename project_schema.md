@@ -1,6 +1,3 @@
-\documentclass[10pt, a4paper]{article}
-\usepackage[document]{ragged2e}
-\usepackage{amsmath,amssymb}
 
 
 
