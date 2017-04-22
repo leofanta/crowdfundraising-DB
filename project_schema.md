@@ -385,7 +385,7 @@ delimiter $$
 create trigger fullyfund before update on Project
 for each row
    	begin
-          	if currentfund >= minfund and issuccess = 0 then
+          	if new.currentfund >= new.minfund and old.issuccess = 0 then
                   	set new.issuccess = 1;
                   	update Pledge set charged=true where pid=new.pid;
           	end if ;
@@ -401,7 +401,7 @@ on schedule every 1 day starts '2017-04-21 00:00:00'
 do begin
    	update Project
    set iscomplete=1, updatetime=now()
-   where iscomplete=0 and endtime=now();
+   where iscomplete=0 and enddate=now();
    end $$
 delimiter ;
 ```
@@ -409,11 +409,4 @@ delimiter ;
 
 
 procedures:
-
-
-```java
-public static void test(){
- System.out.println("this is a test!");
- }
- ```
 
