@@ -3,7 +3,7 @@
 
 **Tables(Schema):**
 primary keys are underlined. With each column, Datatype, not null, isUnique, and meaning.
-
+@github/support What do you think about these updates
 user(uid, uname, email, hometown, password)
 Column
 Datatype
