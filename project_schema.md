@@ -372,7 +372,7 @@ having count(pid) > 2;
 ```
 
 5. List comments by users followed by “BobInBrooklyn”.
-```
+```sql
 select content
 from Comment
 where uid in (select followee
