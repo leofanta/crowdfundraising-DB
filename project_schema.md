@@ -380,7 +380,7 @@ values ('004', '0001', 50, NOW(), '112');
  
  
 8. Write trigger
-'''mysql
+'''sql
 delimiter $$
 create trigger fullyfund before update on Project
 for each row
@@ -393,7 +393,7 @@ for each row
 delimiter ;
 '''
 
-'''mysql
+'''sql
 delimiter $$
  
 create event timecheck
